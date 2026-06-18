@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgywr3vbpax0w"]
+
+[ext_resource type="PackedScene" uid="uid://72tc8y1jd6bw" path="res://Prototype_2.tscn" id="1_rb1iq"]
+[ext_resource type="PackedScene" uid="uid://d4ksnqf8bd30m" path="res://animatable_body_2d.tscn" id="2_n3nc0"]
+
+[sub_resource type="Gradient" id="Gradient_mujt6"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wli73"]
+gradient = SubResource("Gradient_mujt6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mge8c"]
+size = Vector2(33941.1, 110.476)
+
+[sub_resource type="Gradient" id="Gradient_tiohb"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0giuo"]
+gradient = SubResource("Gradient_tiohb")
+
+[node name="MainWorld" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(-328.104, 56.4045)
+scale = Vector2(132.07, 107.191)
+texture = SubResource("GradientTexture1D_wli73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(-297.532, 58.0958)
+shape = SubResource("RectangleShape2D_mge8c")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_rb1iq")]
+position = Vector2(132.66, 1.70048)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(147.733, -73.4057)
+scale = Vector2(3.33442, 32.9881)
+texture = SubResource("GradientTexture1D_0giuo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(147.733, -73.4057)
+scale = Vector2(3.33442, 32.9881)
+texture = SubResource("GradientTexture1D_0giuo")
+
+[node name="Item1" parent="." instance=ExtResource("2_n3nc0")]
+position = Vector2(88.6789, -19.1686)
+
+[node name="item2" parent="." instance=ExtResource("2_n3nc0")]
+position = Vector2(88.5816, -25.6335)

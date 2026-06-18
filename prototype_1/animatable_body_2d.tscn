@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4ksnqf8bd30m"]
+
+[ext_resource type="Script" path="res://Item.gd" id="1_1iqo2"]
+[ext_resource type="Texture2D" uid="uid://d0bulppwmlywc" path="res://pixil-frame-0 (21).png" id="1_c3pit"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dn64e"]
+radius = 9.09885
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bd8b"]
+size = Vector2(3, 4.97656)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_1iqo2")
+
+[node name="InteractRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange"]
+shape = SubResource("CircleShape2D_dn64e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.109375, -0.0429686)
+shape = SubResource("RectangleShape2D_0bd8b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.0113735, 2.46086)
+texture = ExtResource("1_c3pit")
+offset = Vector2(0.624558, -2.99971)
