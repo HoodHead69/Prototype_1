@@ -1,9 +1,9 @@
 extends CharacterBody2D
-
+class_name Player
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var main_sprite: Node2D = $Main_Sprite
 
-const SPEED = 1200.0
+const SPEED = 3500
 const JUMP_VELOCITY = -100.0
 var is_in_range: bool = false
 var target_object = []
@@ -39,12 +39,12 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Punch"):
 		anim_player.play("Punch" )
+		print(SceneManager.PREVIOUS_ROOM.name)
 	if Input.is_action_pressed("Interact"):
 		anim_player.play("interact", 1)
 		
-	if Input.is_action_just_pressed("Drop"):
-		print("Berhasil")
-		Drop()
+	if Input.is_action_just_pressed("debug"):
+		print(global_position)
 		
 func Interact() -> void:
 	if is_in_range:
@@ -82,3 +82,4 @@ func _on_interact_range_body_exited(body: Node2D) -> void:
 		if target_object.size() == 0:
 			is_in_range = false
 		print(is_in_range)
+		
